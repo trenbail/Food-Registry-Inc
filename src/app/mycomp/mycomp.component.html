@@ -1,0 +1,60 @@
+<ul>
+    <li *ngFor="let ud of users">
+    {{ud}}
+    </li>
+    <li *ngFor="let i of departments">
+    {{i}}
+    </li>
+</ul>
+My City: <input type="text" [(ngModel)]="myCity" class="form-control"/>
+{{mycity}}
+profile: <img style="width:150px; height:150px;" [src] ="propic"/><br>
+<button (click)="callme()" class="btn btn-success">call</button><br>
+<app-favorite [isFavorite]='isFav'></app-favorite><br>
+<app-like [totalLikes]='totalLikes'></app-like><br>
+<!-- if true, hidden occurs
+<div [hidden]="shoppingList.length==0">items in your cart is empty</div>
+<div [hidden]="shoppingList.length >0">items found</div>
+-->
+
+<!-- show only one on dom
+<div *ngIf="shoppingList.length>0">items in your cart</div>
+<div *ngIf="shoppingList.length==0">no items found</div>
+-->
+
+<div *ngIf="shoppingList.length>0; then show else noshow"></div>
+<ng-template #show>items in your cart</ng-template>
+<ng-template #noshow>no items found</ng-template>
+
+
+<div *ngIf="users.length>0; then showUsers else noshowUsers"></div>
+<ul>
+<ng-template #showUsers>
+    <li *ngFor="let ud of users">
+    {{ud}}
+    </li>
+</ng-template>
+<ng-template #noshowUsers>no items found</ng-template>
+</ul>
+
+<div *ngIf="departments.length>0; then showDepts else noshowDepts"></div>
+<ul>
+<ng-template #showDepts>
+    <li *ngFor="let i of departments">
+    {{i}}
+    </li>
+</ng-template>
+<ng-template #noshowDepts>no items found</ng-template>
+</ul>
+
+
+Enter Image URL: <input type="text" [(ngModel)]="myImage" class="form-control"/>
+<div *ngIf="myImage=='' ; then noshowImage else showImage"></div>
+<ng-template #showImage>
+    <img [src]="myImage">
+</ng-template>
+<ng-template #noshowImage>
+<!-- image goes here -->
+</ng-template>
+
+
