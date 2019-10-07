@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AppRouting } from './app.routing';
+import { ChildRouting } from './child.routing';
 
 import { AppComponent } from './app.component';
 import { MycompComponent } from './mycomp/mycomp.component';
@@ -9,7 +11,14 @@ import {UserData} from './mycomp/shared/userdata.service'
 import {DepartmentData} from './mycomp/shared/departmentdata.service'
 import {FormsModule} from '@angular/forms';
 import { FavoriteComponent } from './mycomp/favorite/favorite.component';
-import { LikeComponent } from './mycomp/like/like.component'
+import { LikeComponent } from './mycomp/like/like.component';
+import { PipedemoComponent } from './mycomp/pipedemo/pipedemo.component'
+import { Summary } from './mycomp/shared/summary.pipe';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { UserdetailsComponent } from './userdetails/userdetails.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
+import { LandingpageComponent } from './landingpage/landingpage.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,12 +26,19 @@ import { LikeComponent } from './mycomp/like/like.component'
     HeaderComponent,
     FooterComponent,
     FavoriteComponent,
-    LikeComponent
+    LikeComponent,
+    PipedemoComponent,
+    Summary,
+    LoginComponent,
+    RegistrationComponent,
+    UserdetailsComponent,
+    PortfolioComponent,
+    LandingpageComponent
   ],
   imports: [
-    BrowserModule,FormsModule
+    BrowserModule,FormsModule,AppRouting, ChildRouting
   ],
   providers: [UserData, DepartmentData],
-  bootstrap: [AppComponent]
+  bootstrap: [LandingpageComponent]
 })
 export class AppModule { }

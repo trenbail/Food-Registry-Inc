@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/platform-browser';
+import {Injectable} from '@angular/core';
 
-@Injectable
+@Injectable()
 export class DepartmentData {
     loadDepartments():string[] {
         return ['cs','art','ee'];

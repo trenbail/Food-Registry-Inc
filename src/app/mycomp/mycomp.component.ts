@@ -16,8 +16,8 @@ export class MycompComponent implements OnInit {
       this.departments=dep.loadDepartments();
   }
   @Input()
-  myCity = "SA"
-  propic = "http://cdn.akc.org/content/article-body-image/Hero.jpg"
+  myCity = "SA";
+  propic = "http://cdn.akc.org/content/article-body-image/Hero.jpg";
   myImage = "";
   
   
