@@ -23,7 +23,7 @@
         Type cannot be blank!
       </div><br>
 
-        <label for="items">Items</label>
+        <label for="items">Items (comma seperated)</label>
     <input type="text" #items=ngModel ngModel name="items" required class="form-control">
       <div *ngIf=!items.valid style="color: red">
         Items cannot be blank!

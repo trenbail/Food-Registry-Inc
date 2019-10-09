@@ -7,9 +7,16 @@ import {NgForm} from '@angular/forms'
 })
 export class AddCarePackageComponent implements OnInit {
 
+  carepackage: any[] = []
 
-  addCarePackage(nf:NgForm){ 
-    console.log("CarePackage Added!!!", nf.value)
+  addCarePackage(nf:NgForm){
+    this.carepackage.push(nf.value.carepackagename,
+      nf.value.description,
+      nf.value.type,
+      nf.value.items,
+      nf.value.quantity)
+
+    console.log("CarePackage Added!!!", this.carepackage)
   }
 
 

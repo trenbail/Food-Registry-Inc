@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HttpClient} from '@angular/common/http'
+
 
 import {NgForm} from '@angular/forms'
 @Component({
@@ -7,13 +9,16 @@ import {NgForm} from '@angular/forms'
 })
 export class AddFoodComponent implements OnInit {
 
+  addFood(nf:NgForm){
+    nf.value["members"] = {} 
+    this.hc.post("18.221.215.81:3000/inventory/registerFood",nf.value,{headers:{"Content-Type":"application/json"}});
 
-  addFood(nf:NgForm){ 
-    console.log("Food Added!!!", nf.value)
+    console.log("Food OBJECT =>", nf.value)
   }
 
 
-  constructor() {}
+  
+  constructor(private hc: HttpClient) {}
 
   ngOnInit() {
   }

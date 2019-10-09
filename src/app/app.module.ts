@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { AddFoodComponent } from './add-food/add-food.component'
 import { FormsModule }   from '@angular/forms';
 import { AddCarePackageComponent } from './add-carepackage/add-carepackage.component'
-
+import { HttpClientModule} from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +21,8 @@ import { AddCarePackageComponent } from './add-carepackage/add-carepackage.compo
     BrowserModule,
     AppRoutingModule,
     AppRouting,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [NavbarComponent]
