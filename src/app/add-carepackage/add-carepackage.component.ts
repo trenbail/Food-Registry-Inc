@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HttpClient} from '@angular/common/http'
 
 import {NgForm} from '@angular/forms'
 @Component({
@@ -7,20 +8,18 @@ import {NgForm} from '@angular/forms'
 })
 export class AddCarePackageComponent implements OnInit {
 
-  carepackage: any[] = []
-
   addCarePackage(nf:NgForm){
-    this.carepackage.push(nf.value.carepackagename,
-      nf.value.description,
-      nf.value.type,
-      nf.value.items,
-      nf.value.quantity)
 
-    console.log("CarePackage Added!!!", this.carepackage)
+    this.hc.post("http://18.221.215.81:3000/inventory/registerFood",nf.value,{headers:{"Content-Type":"application/json"}})
+    .subscribe((res) => {
+      console.log(res)
+    });
+
+    console.log("care package OBJECT =>", nf.value)
   }
 
 
-  constructor() {}
+  constructor(private hc: HttpClient) {}
 
   ngOnInit() {
   }
