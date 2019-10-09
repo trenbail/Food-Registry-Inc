@@ -1,44 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRouting } from './app.routing';
-import { ChildRouting } from './child.routing';
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MycompComponent } from './mycomp/mycomp.component';
-import { HeaderComponent } from './mycomp/header/header.component';
-import { FooterComponent } from './mycomp/footer/footer.component';
-import {UserData} from './mycomp/shared/userdata.service'
-import {DepartmentData} from './mycomp/shared/departmentdata.service'
-import {FormsModule} from '@angular/forms';
-import { FavoriteComponent } from './mycomp/favorite/favorite.component';
-import { LikeComponent } from './mycomp/like/like.component';
-import { PipedemoComponent } from './mycomp/pipedemo/pipedemo.component'
-import { Summary } from './mycomp/shared/summary.pipe';
+import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { UserdetailsComponent } from './userdetails/userdetails.component';
-import { PortfolioComponent } from './portfolio/portfolio.component';
-import { LandingpageComponent } from './landingpage/landingpage.component'
+import { AddFoodComponent } from './add-food/add-food.component'
+import { FormsModule }   from '@angular/forms';
+import { AddCarePackageComponent } from './add-carepackage/add-carepackage.component'
+
 @NgModule({
   declarations: [
     AppComponent,
-    MycompComponent,
-    HeaderComponent,
-    FooterComponent,
-    FavoriteComponent,
-    LikeComponent,
-    PipedemoComponent,
-    Summary,
+    NavbarComponent,
     LoginComponent,
-    RegistrationComponent,
-    UserdetailsComponent,
-    PortfolioComponent,
-    LandingpageComponent
+    AddFoodComponent,
+    AddCarePackageComponent
   ],
   imports: [
-    BrowserModule,FormsModule,AppRouting, ChildRouting
+    BrowserModule,
+    AppRoutingModule,
+    AppRouting,
+    FormsModule
   ],
-  providers: [UserData, DepartmentData],
-  bootstrap: [LandingpageComponent]
+  providers: [],
+  bootstrap: [NavbarComponent]
 })
 export class AppModule { }

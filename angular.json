@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Food-Registry-Inc": {
+    "FoodIndustry": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Food-Registry-Inc",
+            "outputPath": "dist/FoodIndustry",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Food-Registry-Inc:build"
+            "browserTarget": "FoodIndustry:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Food-Registry-Inc:build:production"
+              "browserTarget": "FoodIndustry:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Food-Registry-Inc:build"
+            "browserTarget": "FoodIndustry:build"
           }
         },
         "test": {
@@ -111,15 +111,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Food-Registry-Inc:serve"
+            "devServerTarget": "FoodIndustry:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Food-Registry-Inc:serve:production"
+              "devServerTarget": "FoodIndustry:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "Food-Registry-Inc"
+  "defaultProject": "FoodIndustry"
 }
