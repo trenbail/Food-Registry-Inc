@@ -1,25 +1,5 @@
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Tabs Titles -->
-
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="http://uucb.org/wp-content/uploads/2016/07/food-pantry-clip-art-1043063.png" id="icon" alt="User Icon" width="150" height="150"/>
-    </div>
-
-    <!-- Login Form -->
-    <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
-    </form>
-
-    <!-- Remind Passowrd -->
-    <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
-    </div>
-
-  </div>
-</div>
+<form class="form-signin" (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <input ngModel name="username" type="text" placeholder="Username" required autofocus>
+  <input ngModel name="password" type="password" required>
+  <input type="submit" value="Login">
+</form>
