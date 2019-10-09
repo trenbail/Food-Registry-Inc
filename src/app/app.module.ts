@@ -8,7 +8,11 @@ import { LoginComponent } from './login/login.component';
 import { AddFoodComponent } from './add-food/add-food.component'
 import { FormsModule }   from '@angular/forms';
 import { AddCarePackageComponent } from './add-carepackage/add-carepackage.component'
-import { HttpClientModule} from '@angular/common/http'
+
+import { HttpClientModule } from '@angular/common/http';
+import { APIService } from './shared/api.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +28,7 @@ import { HttpClientModule} from '@angular/common/http'
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [APIService],
   bootstrap: [NavbarComponent]
 })
 export class AppModule { }
