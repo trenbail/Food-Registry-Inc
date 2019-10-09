@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { APIService } from '../shared/api.service';
+import { LoginService } from './login.service';
+
 
 @Component({
   selector: 'app-login',
@@ -9,10 +10,10 @@ import { APIService } from '../shared/api.service';
 })
 export class LoginComponent implements OnInit {
   onSubmit(nf:NgForm){
-    this.api.login(nf.value,(response)=>{});
+    this.ls.login(nf.value,(response)=>{});
   }
 
-  constructor(private api:APIService) { }
+  constructor(private ls:LoginService) { }
 
   ngOnInit() {
   }
