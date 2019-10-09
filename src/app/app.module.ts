@@ -7,14 +7,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { AddFoodComponent } from './add-food/add-food.component'
 import { FormsModule }   from '@angular/forms';
-
+import { AddCarePackageComponent } from './add-carepackage/add-carepackage.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    AddFoodComponent
+    AddFoodComponent,
+    AddCarePackageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,11 @@
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AddFoodComponent } from './add-food/add-food.component'
- 
+import { AddCarePackageComponent } from './add-carepackage/add-carepackage.component'
+
  export const AppRouting = RouterModule.forRoot([
      {path:'login', component:LoginComponent},
-     {path:'addfood', component:AddFoodComponent}
- 
+     {path:'addfood', component:AddFoodComponent},
+     {path:'addcarepackage', component:AddCarePackageComponent}
+
      ])
