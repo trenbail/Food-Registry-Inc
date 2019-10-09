@@ -1,36 +1,42 @@
+
 <form (ngSubmit)="addCarePackage(f)" #f=ngForm>
-    <h1>Add Care Package</h1>
+    <div class="col-sm-4 col-sm-offset-4">
+
+    <h1 style="text-align:center">Add Care Package</h1>
     
+
     <label for="carepackagename">Care Package Name</label>
-    <input type="text" #carepackagename=ngModel ngModel name="carepackagename" required class="form-control"><br>
+    <input type="text" #carepackagename=ngModel ngModel name="carepackagename" required class="form-control">
       <div *ngIf=!carepackagename.valid style="color: red">
         Name cannot be blank!
-      </div>
+      </div><br>
 
     <label for="description">Description</label>
-    <input type="text" #description=ngModel ngModel name="description" required class="form-control"><br>
+    <input type="text" #description=ngModel ngModel name="description" required class="form-control">
       <div *ngIf=!description.valid style="color: red">
         Description cannot be blank!
-      </div>
+      </div><br>
 
     <label for="type">Type</label>
-    <input type="text" #type=ngModel ngModel name="type" required class="form-control"><br>
+    <input type="text" #type=ngModel ngModel name="type" required class="form-control">
       <div *ngIf=!type.valid style="color: red">
         Type cannot be blank!
-      </div>
+      </div><br>
 
         <label for="items">Items</label>
-    <input type="text" #items=ngModel ngModel name="items" required class="form-control"><br>
+    <input type="text" #items=ngModel ngModel name="items" required class="form-control">
       <div *ngIf=!items.valid style="color: red">
         Items cannot be blank!
-      </div>
+      </div><br>
 
         <label for="quantity">Quantity</label>
-    <input type="text" #quantity=ngModel ngModel name="quantity" required class="form-control"><br>
+    <input type="text" #quantity=ngModel ngModel name="quantity" required class="form-control">
       <div *ngIf=!quantity.valid style="color: red">
         Quantity cannot be blank!
-      </div>
+      </div><br>
 
 
     <button class="btn btn-success" type="submit" [disabled]="!f.valid">Submit</button>
-</form> 
+  </div>
+  </form> 
+  
