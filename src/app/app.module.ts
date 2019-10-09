@@ -16,9 +16,13 @@ import { PipedemoComponent } from './mycomp/pipedemo/pipedemo.component'
 import { Summary } from './mycomp/shared/summary.pipe';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+<<<<<<< Updated upstream
 import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { LandingpageComponent } from './landingpage/landingpage.component'
+=======
+
+>>>>>>> Stashed changes
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +34,7 @@ import { LandingpageComponent } from './landingpage/landingpage.component'
     PipedemoComponent,
     Summary,
     LoginComponent,
+<<<<<<< Updated upstream
     RegistrationComponent,
     UserdetailsComponent,
     PortfolioComponent,
@@ -37,6 +42,14 @@ import { LandingpageComponent } from './landingpage/landingpage.component'
   ],
   imports: [
     BrowserModule,FormsModule,AppRouting, ChildRouting
+=======
+    RegistrationComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AppRouting
+>>>>>>> Stashed changes
   ],
   providers: [UserData, DepartmentData],
   bootstrap: [LandingpageComponent]
