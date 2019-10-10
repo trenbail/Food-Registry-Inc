@@ -14,8 +14,8 @@ import { APIService } from './shared/api.service';
 import { LoginService } from './login/login.service';
 import { OrdersComponent } from './orders/orders.component';
 import { RequestorderComponent } from './orders/requestorder/requestorder.component';
-import { UpdatePackageComponent } from './update-package/update-package.component';
-import { UpdatePackageService } from './update-package/update-package.service';
+import { UpdateInventoryComponent } from './update-inventory/update-inventory.component';
+import { UpdateInventoryService } from './update-inventory/update-inventory.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { UpdatePackageService } from './update-package/update-package.service';
     RegistrationComponent,
     OrdersComponent,
     RequestorderComponent,
-    UpdatePackageComponent
+    UpdateInventoryComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +39,7 @@ import { UpdatePackageService } from './update-package/update-package.service';
   providers: [
     APIService,
     LoginService,
-    UpdatePackageService
+    UpdateInventoryService
   ],
   bootstrap: [NavbarComponent]
 })
