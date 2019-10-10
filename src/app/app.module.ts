@@ -12,10 +12,10 @@ import { AddCarePackageComponent } from './add-carepackage/add-carepackage.compo
 import { HttpClientModule } from '@angular/common/http';
 import { APIService } from './shared/api.service';
 import { LoginService } from './login/login.service';
-import { OrdersComponent } from './orders/orders.component';
-import { RequestorderComponent } from './orders/requestorder/requestorder.component';
 import { UpdateInventoryComponent } from './update-inventory/update-inventory.component';
 import { UpdateInventoryService } from './update-inventory/update-inventory.service';
+import { OrdersModule } from './orders/orders.module';
+
 
 @NgModule({
   declarations: [
@@ -25,8 +25,6 @@ import { UpdateInventoryService } from './update-inventory/update-inventory.serv
     AddFoodComponent,
     AddCarePackageComponent,
     RegistrationComponent,
-    OrdersComponent,
-    RequestorderComponent,
     UpdateInventoryComponent
   ],
   imports: [
@@ -34,7 +32,8 @@ import { UpdateInventoryService } from './update-inventory/update-inventory.serv
     AppRoutingModule,
     AppRouting,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    OrdersModule
   ],
   providers: [
     APIService,
