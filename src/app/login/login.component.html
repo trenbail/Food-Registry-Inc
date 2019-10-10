@@ -1,5 +1,37 @@
-<form class="form-signin" (ngSubmit)="onSubmit(f)" #f="ngForm">
-  <input ngModel name="username" type="text" placeholder="Username" required autofocus>
-  <input ngModel name="password" type="password" required>
-  <input type="submit" value="Login">
+
+<title>Login</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
+<div class="container">
+
+<div class="card bg-light">
+<article class="card-body mx-auto" style="max-width: 400px;">
+	<h4 class="card-title mt-3 text-center">Login</h4>
+	<form class="form-signin" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user-circle"></i> </span>
+		 </div>
+        <input name="" class="form-control" ngModel name="username" placeholder="Username" type="text" required autofocus>
+    </div> <!-- form-group end -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" ngModel name="password" value="Login" placeholder="Password" type="password" required>
+    </div> <!-- form-group -->                                  
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Login  </button>
+    </div> <!-- form-group -->                                                                   
 </form>
+</article>
+</div> <!-- card. -->
+
+</div> 
+<!--container end.-->

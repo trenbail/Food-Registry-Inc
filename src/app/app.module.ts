@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { AddFoodComponent } from './add-food/add-food.component'
+import { RegistrationComponent } from './registration/registration.component';
 import { FormsModule } from '@angular/forms';
 import { AddCarePackageComponent } from './add-carepackage/add-carepackage.component'
 import { HttpClientModule } from '@angular/common/http';
@@ -18,7 +19,8 @@ import { LoginService } from './login/login.service';
     NavbarComponent,
     LoginComponent,
     AddFoodComponent,
-    AddCarePackageComponent
+    AddCarePackageComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
