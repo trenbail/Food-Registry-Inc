@@ -13,6 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { APIService } from './shared/api.service';
 import { LoginService } from './login/login.service';
 import {OrdersModule} from './orders/orders.module';
+import { UpdatePackageComponent } from './update-package/update-package.component';
+import { UpdatePackageService } from './update-package/update-package.service';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +25,7 @@ import {OrdersModule} from './orders/orders.module';
     AddFoodComponent,
     AddCarePackageComponent,
     RegistrationComponent,
+    UpdatePackageComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,8 @@ import {OrdersModule} from './orders/orders.module';
   ],
   providers: [
     APIService,
-    LoginService
+    LoginService,
+    UpdatePackageService
   ],
   bootstrap: [NavbarComponent]
 })
