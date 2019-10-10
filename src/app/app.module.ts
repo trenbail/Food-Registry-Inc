@@ -15,6 +15,7 @@ import { LoginService } from './login/login.service';
 import { UpdateInventoryComponent } from './update-inventory/update-inventory.component';
 import { UpdateInventoryService } from './update-inventory/update-inventory.service';
 import { OrdersModule } from './orders/orders.module';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { OrdersModule } from './orders/orders.module';
     AddFoodComponent,
     AddCarePackageComponent,
     RegistrationComponent,
-    UpdateInventoryComponent
+    UpdateInventoryComponent,
+    UpdateProfileComponent
   ],
   imports: [
     BrowserModule,
