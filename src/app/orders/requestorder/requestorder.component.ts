@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {OrdersService} from '../orders.service';
+import {Food} from '../shared/Food.model';
 
 @Component({
   selector: 'app-requestorder',
@@ -12,8 +13,19 @@ export class RequestorderComponent implements OnInit {
   constructor(private orderService: OrdersService) { }
 
   ngOnInit() {
-    this.orderService.getSubscribedFood();
+
+    this.orderService.getSubscribedFood((res) => {
+      let keys = Object.keys(res);
+      let temparr = [];
+      for (let key of keys) {
+        temparr.push(res[key]);
+      }
+      this.foodSubscriptions = temparr;
+    });
+
+
 
   }
+
 
 }

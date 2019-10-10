@@ -10,17 +10,17 @@ import {NgForm} from '@angular/forms'
 export class AddFoodComponent implements OnInit {
 
   addFood(nf:NgForm){
-    nf.value["members"] = {} 
+    nf.value["members"] = {}
     this.hc.post("http://18.221.215.81:3000/inventory/registerFood",nf.value,{headers:{"Content-Type":"application/json"}})
     .subscribe((res) => {
       console.log(res)
     });
 
-    console.log("Food OBJECT =>", nf.value)
+    console.log("FoodModel OBJECT =>", nf.value)
   }
 
 
-  
+
   constructor(private hc: HttpClient) {}
 
   ngOnInit() {

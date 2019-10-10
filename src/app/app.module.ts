@@ -12,8 +12,7 @@ import { AddCarePackageComponent } from './add-carepackage/add-carepackage.compo
 import { HttpClientModule } from '@angular/common/http';
 import { APIService } from './shared/api.service';
 import { LoginService } from './login/login.service';
-import { OrdersComponent } from './orders/orders.component';
-import { RequestorderComponent } from './orders/requestorder/requestorder.component';
+import {OrdersModule} from './orders/orders.module';
 
 @NgModule({
   declarations: [
@@ -23,15 +22,14 @@ import { RequestorderComponent } from './orders/requestorder/requestorder.compon
     AddFoodComponent,
     AddCarePackageComponent,
     RegistrationComponent,
-    OrdersComponent,
-    RequestorderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AppRouting,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    OrdersModule
   ],
   providers: [
     APIService,
