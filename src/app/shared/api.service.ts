@@ -6,7 +6,7 @@ const APIBaseURL = "http://18.221.215.81/api";
 @Injectable()
 export class APIService {
     get(endpoint: string, callback: (response) => void) {
-        let observer = this.hc.delete(
+        let observer = this.hc.get(
             APIBaseURL + endpoint
         );
         observer.subscribe((response) => callback(response));
