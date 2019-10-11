@@ -9,10 +9,12 @@ import {LandingService} from './landing.service';
 export class LandingComponent implements OnInit {
   user: any;
   date: Date = new Date();
+
   constructor(private landingService: LandingService) { }
   ngOnInit() {
     this.landingService.getUser((response) => {
       this.user = response;
+      console.log(response);
     });
   }
 

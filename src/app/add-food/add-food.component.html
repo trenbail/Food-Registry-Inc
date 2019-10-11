@@ -12,15 +12,15 @@
 
 <div class="card bg-light">
 <article class="card-body mx-auto" style="max-width: 400px;">
-	<h4 class="card-title mt-3 text-center">Add FoodModel</h4>
+	<h4 class="card-title mt-3 text-center">Add Food</h4>
 	<form (ngSubmit)="addFood(f)" #f=ngForm>
     <div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-archive"></i> </span>
 		 </div>
-        <input name="" class="form-control" #foodname=ngModel ngModel name="name" required placeholder="FoodModel Name" type="text">
+        <input name="" class="form-control" #foodname=ngModel ngModel name="name" required placeholder="Food Name" type="text">
     </div>
-    <div *ngIf=!foodname.valid style="color: red">
+    <div *ngIf='!foodname.valid && foodname.dirty' style="color: red">
       Name cannot be blank!
     </div><br><!-- form-group end -->
     <div class="form-group input-group">
@@ -29,7 +29,7 @@
        </div>
           <input class="form-control" #description=ngModel ngModel name="description" required placeholder="Description" type="text">
       </div>
-      <div *ngIf=!description.valid style="color: red">
+      <div *ngIf='!description.valid && description.dirty' style="color: red">
         Description cannot be blank!
       </div><br> <!-- form-group end -->
       <div class="form-group input-group">
@@ -38,7 +38,7 @@
          </div>
             <input class="form-control" #quantity=ngModel ngModel name="quantity" required placeholder="Quantity" type="text">
         </div>
-        <div *ngIf=!quantity.valid style="color: red">
+        <div *ngIf='!quantity.valid && quantity.dirty' style="color: red">
           Quantity cannot be blank!
         </div><br><!-- form-group end -->
       <div class="form-group input-group">
@@ -47,7 +47,7 @@
          </div>
             <input class="form-control" #type=ngModel ngModel name="type" required placeholder="Type" type="text">
         </div>
-        <div *ngIf=!type.valid style="color: red">
+        <div *ngIf='!type.valid && type.dirty' style="color: red">
           Type cannot be blank!
         </div><br><!-- form-group end -->
         <div class="form-group input-group">
@@ -56,7 +56,7 @@
            </div>
               <input class="form-control" #imageurl=ngModel ngModel name="imageurl" required placeholder="Image URL" type="text">
           </div>
-          <div *ngIf=!imageurl.valid style="color: red">
+          <div *ngIf='!imageurl.valid && imageurl.dirty'style="color: red">
             Image URL cannot be blank!
           </div><br> <!-- form-group end -->
     <div class="form-group">

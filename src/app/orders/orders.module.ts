@@ -10,7 +10,8 @@ import {OrdersComponent} from './orders.component';
     OrdersComponent
   ],
   exports: [
-    OrdersComponent
+    OrdersComponent,
+    RequestorderComponent
   ],
   imports: [
     CommonModule

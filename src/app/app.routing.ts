@@ -7,6 +7,7 @@ import {OrdersComponent} from './orders/orders.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import {HomeComponent} from './home/home.component';
 import {LandingComponent} from './landing/landing.component';
+import {RequestorderComponent} from './orders/requestorder/requestorder.component';
 
 
  export const AppRouting = RouterModule.forRoot([
@@ -17,5 +18,6 @@ import {LandingComponent} from './landing/landing.component';
    {path: 'order', component: OrdersComponent},
    {path:'updateprofile', component: UpdateProfileComponent},
    {path: '', component: HomeComponent},
-   {path: 'landing', component: LandingComponent }
+   {path: 'landing', component: LandingComponent },
+   {path: 'requestorder', component: RequestorderComponent}
      ]);
