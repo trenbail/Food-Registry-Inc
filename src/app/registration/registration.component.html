@@ -62,11 +62,14 @@
 				<div class="input-group-prepend">
 					<span class="input-group-text"> <i class="fa fa-phone"></i> </span>
 				 </div>
-				<input class="form-control" #phone=ngModel ngModel name="phone" required placeholder="Phone Number" type="number">
+				<input class="form-control" #phone=ngModel ngModel name="phone" required placeholder="Phone Number" type="number" pattern="^\d{10}$">
 			</div>  
-			<div *ngIf='!phone.valid && phone.dirty' style="color:red">
+			<div *ngIf='phone.errors.required  && phone.dirty' style="color:red">
 				Phone Number Can Not be Blank!
 			</div>
+			<div *ngIf="phone.errors?.pattern && phone.dirty" style="color: red">
+				Phone Number is not valid.
+			 </div>
 			<!-- form-group -->
 			<br><div class="form-group input-group">
 				<div class="input-group-prepend">
