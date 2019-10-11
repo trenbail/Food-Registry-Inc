@@ -5,9 +5,43 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
+<div class="container" *ngIf="foodSubscriptions">
+  <h3>Food Items</h3>
+  <div class ="card bg-light" *ngFor="let food of foodSubscriptions" >
+    <h2 class="card-title"> {{food.name}}  </h2>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          {{food.description}} <br>
+          {{food.type}} <br>
+        </div>
 
-<div class="container">
-  <div>
-    {{foodSubscriptions}}
+        <div class="col-md-6">
+          <img src='{{food.imageurl}}' height="75%" width="50%" alt="image of {{food.name}}"> <br> <br>
+          Quantity: <input type="number"  value="0" min="0" max="{{food.quantity}}">
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="carePackageSubscriptions.length">
+  <h3>Care Packages</h3>
+  <div class ="card bg-light" *ngFor="let carepackages of carePackageSubscriptions" >
+    <h2 class="card-title"> {{carepackages.name}}  </h2>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          {{carepackages.description}} <br>
+          {{carepackages.type}} <br>
+        </div>
+
+        <div class="col-md-6">
+          Quantity: <input type="number"  value="0" min="0" max="{{carepackages.quantity}}">
+        </div>
+        <br>
+      </div>
+    </div>
   </div>
 </div>

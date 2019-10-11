@@ -1,0 +1,92 @@
+
+<title>Update Profile</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<form [formGroup]="form" (submit)="submit()" class="form-inlin justify-content-center">
+        <div class="col-sm-4 col-sm-offset-4">
+        <h1 style="text-align:center">Update Profile</h1>
+      
+      
+          <label for="username">User Name</label>
+          <input type="text" formControlName="username" class="form-control" disabled>
+		  
+            <br>
+      
+          <label for="name">Name</label>
+          <input type="text" formControlName="firstname" required class="form-control">
+		   <span class="text-danger" *ngIf="form.controls['firstname'].touched && form.controls['firstname'].hasError('required')">
+                  Name is required! </span>
+
+           <br>
+		   
+      
+          <label for="password">Password</label>
+          <input type="password" formControlName="passwords" class="form-control">
+		  <span class="text-danger" *ngIf="form.controls['passwords'].touched && form.controls['passwords'].hasError('required')">
+                  Password is required! </span>
+          <br>   
+            
+          <label for="mobileno">Mobile No</label>
+          <input type="tel" formControlName="mobileno" class="form-control" pattern="^\d{10}$"> 
+		   <span class="text-danger" *ngIf="form.controls['mobileno'].touched && form.controls['mobileno'].hasError('required')">
+                  Mobile No is required! </span>
+          <br>
+      
+          <label for="address">Address</label>
+          <input type="text" formControlName="address" class="form-control">
+           <br>
+      
+           <label for="emailid">Email Id</label>
+           <input type="email" formControlName="email" class="form-control">
+		    <span class="text-danger" *ngIf="form.controls['email'].touched && form.controls['email'].hasError('required')">
+                  Email id is required! </span>
+          <br>
+           
+           <label for="subscriptions">Subscriptions</label>
+           <input type="text" formControlName="subscriptions" class="form-control">
+            <br>
+      
+           <label for="familyinfo" >Do you wish to add family members?</label>
+           <div class="custom-control custom-radio">  
+                <input type="radio" formControlName="familyinfo" value="Yes" class="form-check-input"> Yes 
+                <br>
+                <input type="radio" formControlName="familyinfo" value="no" class="form-check-input"> No  
+          </div>  
+         
+		 <div *ngIf="form.controls.radioBoutton.value == 'Yes'">
+          <div formArrayName="contacts">
+            <div *ngFor="let contact of contactFormGroup.controls; let i = index;">
+              <div [formGroupName]="i">
+                <br>
+                <label for="dependentname">Dependent Name </label>
+                <input type="text" formControlName="name" required  class="form-control">
+                <br> 
+				
+                <label for="dependentage">Dependent Age</label>
+                <input type="number" formControlName="value" class="form-control">
+				
+                <br>  
+               <div class="form-group col-12 text-right">
+                    <button class="btn btn-danger" type="button" (click)="removeContact(i)"> Remove </button>
+               </div>
+          </div>
+          <div>
+              <button class="btn btn-primary m-1" type="button" (click)="addContact()">Add Dependent</button>
+          </div> 	
+        </div> 
+         <br>
+        </div>  
+		</div>
+        <br>   
+          <div *ngIf="form.controls.radioBoutton.value == 'No'">   
+         </div>   
+          <button class="btn btn-success" [disabled]="!form.valid" type="submit" >Submit</button>
+          <br>
+        </div>
+        </form>
+      
+      

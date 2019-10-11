@@ -1,0 +1,53 @@
+<div class="container">
+
+        <h1>Care Packages</h1>
+    
+        <div class="card bg-light" *ngFor="let carepackage of carepackages">
+            <h3 class="card-title">{{carepackage.name}} </h3>
+    
+    
+            <span> Description: {{carepackage.description}}</span><br>
+            <span> Type: {{carepackage.type}}</span><br>
+            <span> Quantity: {{carepackage.quantity}}</span><br>
+            <span> Items: {{carepackage.items}}</span><br>
+    
+            <span>
+                <div *ngIf="carepackage.userFound==true; then showunsubscribec else showsubscribec"></div>
+            </span>
+            <ng-template #showsubscribec><button type="submit" class="btn btn-primary"
+                    (click)="onSubscribedCarePackage(carepackage)">Subscribe</button></ng-template>
+            <ng-template #showunsubscribec><button type="submit" class="btn btn-danger"
+                    (click)="onUnSubscribedCarePackage(carepackage)">Unsubscribe</button></ng-template>
+        </div>
+        <br>
+        <h1>Food</h1>
+        <div class="card bg-light" *ngFor="let food of foods">
+    
+    
+            <h3 class="card-title">{{food.name}}</h3>
+    
+            <span> Description: {{food.description}}</span><br>
+            <span> Type: {{food.type}}</span><br>
+            <span> Quantity: {{food.quantity}}</span><br>
+            <span>
+                <div *ngIf="food.imageurl.length>5; then showimage else noshowimage"></div>
+            </span><br>
+    
+            <ng-template #showimage>
+                <img [src]='food.imageurl' width='100' height='100' />
+            </ng-template>
+    
+            <ng-template #noshowimage>
+                Image Not Available
+            </ng-template>
+    
+            <span>
+                <div *ngIf="food.userFound==true; then showunsubscribe else showsubscribe"></div>
+            </span><br>
+            <ng-template #showsubscribe><button type="submit" class="btn btn-primary"
+                    (click)="onSubscribedFood(food)">Subscribe</button></ng-template>
+            <ng-template #showunsubscribe><button type="submit" class="btn btn-danger"
+                    (click)="onUnSubscribedFood(food)">Unsubscribe</button></ng-template>
+    
+        </div> <!-- card. -->
+    </div>

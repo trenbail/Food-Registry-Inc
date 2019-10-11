@@ -1,8 +1,4 @@
-  
 <title>Add Carepackage</title>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
@@ -17,10 +13,10 @@
     <div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-archive"></i> </span>
-		 </div> 
+		 </div>
         <input class="form-control" #carepackagename=ngModel ngModel name="name" required placeholder="Care Package Name" type="text">
-    </div> 
-    <div *ngIf=!carepackagename.valid style="color: red">
+    </div>
+    <div *ngIf="!carepackagename.valid && carepackagename.dirty" style="color: red">
       Name cannot be blank!
     </div><br><!-- form-group end -->
     <div class="form-group input-group">
@@ -29,7 +25,7 @@
        </div>
           <input class="form-control" #description=ngModel ngModel name="description" required placeholder="Description" type="text">
       </div>
-      <div *ngIf=!description.valid style="color: red">
+      <div *ngIf='!description.valid && description.dirty'style="color: red">
         Description cannot be blank!
       </div><br> <!-- form-group end -->
       <div class="form-group input-group">
@@ -37,17 +33,17 @@
             <span class="input-group-text"> <i class="fa fa-tag"></i> </span>
          </div>
             <input class="form-control" #type=ngModel ngModel name="type" required placeholder="Type" type="text">
-        </div> 
-        <div *ngIf=!type.valid style="color: red">
+        </div>
+        <div *ngIf='!type.valid && type.dirty' style="color: red">
           Type cannot be blank!
         </div><br><!-- form-group end -->
         <div class="form-group input-group">
           <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-info"></i> </span>
            </div>
-              <input class="form-control" #items=ngModel ngModel name="items" required placeholder="Items (comma seperated)" type="text"> 
+              <input class="form-control" #items=ngModel ngModel name="items" required placeholder="Items (comma seperated)" type="text">
           </div>
-          <div *ngIf=!items.valid style="color: red">
+          <div *ngIf='!items.valid && items.dirty' style="color: red">
             Items cannot be blank!
           </div><br> <!-- form-group end -->
           <div class="form-group input-group">
@@ -55,17 +51,16 @@
                 <span class="input-group-text"> <i class="fa fa-gift"></i> </span>
              </div>
                 <input class="form-control" #quantity=ngModel ngModel name="quantity" required placeholder="Quantity" type="text">
-            </div> 
-            <div *ngIf=!quantity.valid style="color: red">
+            </div>
+            <div *ngIf='!quantity.valid && quantity.dirty'style="color: red">
               Quantity cannot be blank!
-            </div><br><!-- form-group end -->                                
+            </div><br><!-- form-group end -->
     <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block" [disabled]="!f.valid"> Submit  </button>
-    </div> <!-- form-group -->                                                                   
+    </div> <!-- form-group -->
 </form>
 </article>
 </div> <!-- card. -->
 
-</div> 
+</div>
 <!--container end.-->
-  

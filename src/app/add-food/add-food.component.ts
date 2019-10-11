@@ -17,6 +17,7 @@ export class AddFoodComponent implements OnInit {
   
   constructor(private apiS: APIService) {}
 
+
   ngOnInit() {
   }
 

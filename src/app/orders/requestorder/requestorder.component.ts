@@ -8,12 +8,31 @@ import {OrdersService} from '../orders.service';
 })
 export class RequestorderComponent implements OnInit {
   foodSubscriptions: any[];
+  carePackageSubscriptions: any[] = [];
 
   constructor(private orderService: OrdersService) { }
 
   ngOnInit() {
-    this.orderService.getSubscribedFood();
+
+    this.orderService.getSubscribedFood((res) => {
+      let keys = Object.keys(res);
+      let temparr = [];
+      for (let key of keys) {
+        temparr.push(res[key]);
+      }
+      this.foodSubscriptions = temparr;
+    });
+
+    this.orderService.getSubscribedCarePackages((res) => {
+      let keys = Object.keys(res);
+      let temparr = [];
+      for (let key of keys) {
+        temparr.push(res[key]);
+      }
+      this.carePackageSubscriptions = temparr;
+    });
 
   }
+
 
 }
