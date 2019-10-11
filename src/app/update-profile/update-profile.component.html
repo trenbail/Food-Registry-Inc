@@ -1,4 +1,4 @@
-
+      
 <title>Update Profile</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -6,46 +6,70 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-<form (ngSubmit)="updateprofile(f)" #f=ngForm class="form-inlin justify-content-center">
-        <div class="col-sm-4 col-sm-offset-4">
-        <h1 style="text-align:center">Update Profile</h1>
-      
-      
-          <label for="username">User Name</label>
-          <input type="text" #username=ngModel ngModel name="username" class="form-control" disabled>
-            <br>
-      
-          <label for="name">Name</label>
-          <input type="text" #name=ngModel ngModel name="name" class="form-control">
-            <br>
-      
-          <label for="password">Password</label>
-          <input type="password" #password=ngModel ngModel name="password" class="form-control">
-            <br>   
-            
-          <label for="mobileno">Mobile No</label>
-          <input type="tel" #mobileno=ngModel ngModel name="mobileno" class="form-control" pattern="^\d{10}$"> 
-          <div *ngIf="mobileno.errors?.pattern" style="color: red">
-            Mobile No is not valid.
-         </div> 
-          <br>   
-      
-          <label for="address">Address</label>
-          <input type="text" #address=ngModel ngModel name="address" class="form-control">
-           <br>
-      
-           <label for="emailid">Email Id</label>
-           <input type="email" #emailid=ngModel ngModel email name="emailid" class="form-control">
-           <div *ngIf=!emailid.valid style="color: red">
-            Email id is not valid
-          </div>
-          <br>
-           
-           <label for="subscriptions">Subscriptions</label>
-           <input type="text" #subscriptions=ngModel ngModel name="subscriptions" class="form-control">
-            <br>
-      
-           <label for="familyinfo" >Do you wish to add family members?</label>
+
+
+<div class="container">
+
+<div class="card bg-light">
+<article class="card-body mx-auto" style="max-width: 400px;">
+	<h4 class="card-title mt-3 text-center">Update Profile</h4>
+	<form class="form-signin" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user-circle"></i> </span>
+		 </div>
+        <input name="" class="form-control" #username=ngModel ngModel name="Username" type="text" required disabled>
+    </div> 
+    <!-- form-group end -->
+    <div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input name="" class="form-control" #name=ngModel ngModel name="name" placeholder="Name" type="text" required >
+    </div> 
+    <!-- form-group end -->
+    <div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		 </div>
+        <input name="" class="form-control" #password=ngModel ngModel name="password" placeholder="Password" type="text" required >
+    </div> 
+    <!-- form-group end -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+		</div>
+        <input class="form-control" #mobileno=ngModel ngModel name="mobileno" placeholder="Phone Number" class="form-control" pattern="^\d{10}$" required>
+    </div>
+    <div *ngIf="mobileno.errors?.pattern" style="color: red">
+      Phone Number is not valid.
+   </div>  
+    <!-- form-group -->
+    <div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
+		 </div>
+        <input name="" class="form-control" #address=ngModel ngModel name="address" placeholder="Address" type="text" required >
+    </div> 
+    <!-- form-group end -->
+    <div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		 </div>
+        <input name="" class="form-control" #emailid=ngModel ngModel email name="emailid" placeholder="Email" type="text" required >
+    </div>
+    <div *ngIf='!emailid.valid && emailid.dirty' style="color: red">
+      Email id is not valid
+    </div> 
+    <!-- form-group end -->
+    <div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-rss"></i> </span>
+		 </div>
+        <input name="" class="form-control" #subscriptions=ngModel ngModel name="subscriptions" placeholder="Subscriptions" type="text" required >
+    </div> 
+    <!-- form-group end -->
+    <label for="familyinfo" >Do you wish to add family members?</label>
            <div class="custom-control custom-radio">  
                 <input type="radio" name="answer" value="Yes" (click)="setradio('Yes')" ngModel class="form-check-input"> Yes 
                 <br>
@@ -84,7 +108,10 @@
          </div>   
           <button class="btn btn-success" [disabled]="!form.valid" type="submit" >Submit</button>
           <br>
-        </div>
-        </form>
-      
-      
+<!-- form-group -->
+</form>
+</article>
+</div> <!-- card. -->
+
+</div>
+<!--container end.-->
