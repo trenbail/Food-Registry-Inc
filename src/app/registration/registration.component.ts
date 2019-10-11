@@ -9,15 +9,18 @@ import { APIService } from '../shared/api.service'
 })
 export class RegistrationComponent implements OnInit {
 
-  addUser(nf:NgForm){
+  addUser(nf: NgForm) {
     //   console.log("User Added!", nf.value);
-    this.apiS.post("/user/createProfile", nf.value, function(res) {console.log(res)})
-    console.log("User OBJECT =>", nf.value)
+    this.apiS.post("/user/createProfile", nf.value, (res) => {
+      console.log(res);
+    });
   }
 
-  constructor(private apiS: APIService) { }
+    constructor(private apiS: APIService) {}
 
-  ngOnInit() {
+    ngOnInit()
+    {
+    }
+
   }
 
-}

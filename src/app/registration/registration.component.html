@@ -1,7 +1,4 @@
 <title>Registration</title>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
@@ -17,7 +14,7 @@
 				<div class="input-group-prepend">
 					<span class="input-group-text"> <i class="fa fa-user"></i> </span>
 				 </div>
-				<input class="form-control" #name=ngModel ngModel name="name" required minlength="3" placeholder="Full name" type="text">
+				<input class="form-control" #name=ngModel ngModel name="fullname" required minlength="3" placeholder="Full name" type="text">
 			</div>
 			<div *ngIf='name.invalid && name.dirty'>
 				<div *ngIf=name.errors.required style="color:red">
@@ -33,7 +30,7 @@
 					<span class="input-group-text"> <i class="fa fa-user-circle"></i> </span>
 				 </div>
 				<input class="form-control" #username=ngModel ngModel name="username" required minlength="3" placeholder="Username" type="text">
-			</div> 
+			</div>
 			<div *ngIf='username.invalid && username.dirty'>
 				<div *ngIf=username.errors.required style="color:red">
 					Username Can Not be Blank!
@@ -62,24 +59,18 @@
 				<div class="input-group-prepend">
 					<span class="input-group-text"> <i class="fa fa-phone"></i> </span>
 				 </div>
-				<input class="form-control" #phone=ngModel ngModel name="phone" required placeholder="Phone Number" type="number" pattern="^\d{10}$">
-			</div>  
-			<div *ngIf='phone.errors.required  && phone.dirty' style="color:red">
-				Phone Number Can Not be Blank!
+				<input class="form-control" #phone=ngModel ngModel name="phone" placeholder="Phone Number" required type="number">
 			</div>
-			<div *ngIf="phone.errors?.pattern && phone.dirty" style="color: red">
-				Phone Number is not valid.
-			 </div>
 			<!-- form-group -->
 			<br><div class="form-group input-group">
 				<div class="input-group-prepend">
 					<span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
 				 </div>
 				<input class="form-control" #address=ngModel ngModel name="address" required placeholder="Address" type="text">
-			</div>  
+			</div>
 			<div *ngIf='!address.valid && address.dirty' style="color:red">
 				Address Can Not be Blank!
-			</div>  
+			</div>
 			<!-- form-group -->
 			<br><div class="form-group input-group">
 				<div class="input-group-prepend">
@@ -90,7 +81,7 @@
 					<option value="admin">Volunteer</option>
 					<option value="subscriber">Subscriber</option>
 				</select>
-			</div> 
+			</div>
 			<div *ngIf='!usertype.valid && usertype.dirty' style="color:red">
 				Please Select a User!
 			</div>
@@ -100,18 +91,18 @@
 					<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 				</div>
 				<input class="form-control" #password=ngModel ngModel name="password" required placeholder="Create password" type="password">
-			</div> 
+			</div>
 			<div *ngIf='!password.valid && password.dirty' style="color:red">
 				Password Can Not be Blank!
-			</div> 
-			<!-- form-group -->                                  
+			</div>
+			<!-- form-group -->
 			<br><div class="form-group">
 				<button type="submit" [disabled]="!f.valid" class="btn btn-primary btn-block"> Create Account  </button>
-			</div> <!-- form-group -->      
-			<p class="text-center">Have an account? <a href="\login">Log In</a> </p>                                                                 
+			</div> <!-- form-group -->
+			<p class="text-center">Have an account? <a href="\login">Log In</a> </p>
 		</form>
 		</article>
 		</div> <!-- card. -->
-		
-	</div> 
+
+	</div>
 		<!--container end.-->
