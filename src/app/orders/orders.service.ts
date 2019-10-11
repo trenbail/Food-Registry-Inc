@@ -19,5 +19,9 @@ export class OrdersService {
     this.apiService.get('/inventory/getSubscribedCarePackages', callback);
   }
 
+  requestOrder(object,callback){
+    this.apiService.post('/orders/requestOrder', object, callback);
+  }
+
 
 }
