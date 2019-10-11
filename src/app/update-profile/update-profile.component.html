@@ -11,7 +11,7 @@
 <div class="container">
 	<div class="card bg-light">
 		<article class="card-body mx-auto" style="max-width: 400px;">
-			<h4 class="card-title mt-3 text-center">Create Account</h4>
+			<h4 class="card-title mt-3 text-center">Update Profile</h4>
 			<p class="text-center">Get started with your free account</p>
 			<form [formGroup]="form" (submit)="submit()">
 			<!-- form-group -->
@@ -20,7 +20,7 @@
 					<span class="input-group-text"> <i class="fa fa-user-circle"></i> </span>
 				 </div>
 				<input class="form-control" formControlName="username" type="text" disabled>
-			</div> 
+			</div>
       <!-- form-group -->
       <div class="form-group input-group">
 				<div class="input-group-prepend">
@@ -36,7 +36,7 @@
 					<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 				</div>
 				<input class="form-control" formControlName="passwords" required placeholder="Password" type="password">
-			</div> 
+			</div>
 			<span class="text-danger" *ngIf="form.controls['passwords'].touched && form.controls['passwords'].hasError('required')">
         Password is required! </span>
       <!-- form-group -->
@@ -45,7 +45,7 @@
 					<span class="input-group-text"> <i class="fa fa-phone"></i> </span>
 				 </div>
 				<input class="form-control" type="tel" formControlName="mobileno" pattern="^\d{10}$" required placeholder="Phone Number" type="number" pattern="^\d{10}$">
-			</div>  
+			</div>
 			<span class="text-danger" *ngIf="form.controls['mobileno'].touched && form.controls['mobileno'].hasError('required')">
         Mobile No is required! </span>
        <!-- form-group -->
@@ -54,10 +54,10 @@
 					<span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
 				 </div>
 				<input class="form-control" formControlName="address" required placeholder="Address" type="text">
-			</div>  
+			</div>
 			<div *ngIf='!address.valid && address.dirty' style="color:red">
 				Address Can Not be Blank!
-			</div>  
+			</div>
 			<!-- form-group -->
 			<br><div class="form-group input-group">
 				<div class="input-group-prepend">
@@ -73,16 +73,16 @@
 					<span class="input-group-text"> <i class="fa fa-rss"></i> </span>
 				 </div>
 				<input class="form-control" formControlName="subscriptions" required placeholder="Subscriptions" type="text">
-			</div>  
-			
-			<!-- form-group -->                                  
+			</div>
+
+			<!-- form-group -->
 			<label for="familyinfo" >Do you wish to add family members?</label>
-           <div class="custom-control custom-radio">  
-                <input type="radio" formControlName="familyinfo" value="Yes" class="form-check-input"> Yes 
+           <div class="custom-control custom-radio">
+                <input type="radio" formControlName="familyinfo" value="Yes" class="form-check-input"> Yes
                 <br>
-                <input type="radio" formControlName="familyinfo" value="no" class="form-check-input"> No  
-          </div>  
-         
+                <input type="radio" formControlName="familyinfo" value="no" class="form-check-input"> No
+          </div>
+
 		 <div *ngIf="form.controls.radioBoutton.value == 'Yes'">
           <div formArrayName="contacts">
             <div *ngFor="let contact of contactFormGroup.controls; let i = index;">
@@ -90,31 +90,30 @@
                 <br>
                 <label for="dependentname">Dependent Name </label>
                 <input type="text" formControlName="name" required  class="form-control">
-                <br> 
-				
+                <br>
+
                 <label for="dependentage">Dependent Age</label>
                 <input type="number" formControlName="value" class="form-control">
-				
-                <br>  
+
+                <br>
                <div class="form-group col-12 text-right">
                     <button class="btn btn-danger" type="button" (click)="removeContact(i)"> Remove </button>
                </div>
           </div>
           <div>
               <button class="btn btn-primary m-1" type="button" (click)="addContact()">Add Dependent</button>
-          </div> 	
-        </div> 
+          </div>
+        </div>
          <br>
-        </div>  
+        </div>
 		</div>
-        <br>   
-          <div *ngIf="form.controls.radioBoutton.value == 'No'"></div>   
+        <br>
+          <div *ngIf="form.controls.radioBoutton.value == 'No'"></div>
           <button class="btn btn-success" [disabled]="!form.valid" type="submit" >Submit</button>
-          <br>                                                          
+          <br>
 		</form>
 		</article>
 		</div> <!-- card. -->
-		
-	</div> 
+
+	</div>
 		<!--container end.-->
-      
