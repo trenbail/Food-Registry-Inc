@@ -15,5 +15,9 @@ export class OrdersService {
     this.apiService.get('/inventory/getSubscribedFood', callback);
   }
 
+  getSubscribedCarePackages(callback) {
+    this.apiService.get('/inventory/getSubscribedCarePackages', callback);
+  }
+
 
 }

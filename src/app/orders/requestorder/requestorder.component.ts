@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {OrdersService} from '../orders.service';
-import {Food} from '../shared/Food.model';
 
 @Component({
   selector: 'app-requestorder',
@@ -9,6 +8,7 @@ import {Food} from '../shared/Food.model';
 })
 export class RequestorderComponent implements OnInit {
   foodSubscriptions: any[];
+  carePackageSubscriptions: any[] = [];
 
   constructor(private orderService: OrdersService) { }
 
@@ -23,7 +23,14 @@ export class RequestorderComponent implements OnInit {
       this.foodSubscriptions = temparr;
     });
 
-
+    this.orderService.getSubscribedCarePackages((res) => {
+      let keys = Object.keys(res);
+      let temparr = [];
+      for (let key of keys) {
+        temparr.push(res[key]);
+      }
+      this.carePackageSubscriptions = temparr;
+    });
 
   }
 
