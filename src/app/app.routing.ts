@@ -9,7 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { LandingComponent } from './landing/landing.component';
 import { RequestorderComponent } from './orders/requestorder/requestorder.component';
 import { UpdateInventoryComponent } from './update-inventory/update-inventory.component';
-import { ViewInventoryComponent} from './view-inventory/view-inventory.component'
+import { ViewInventoryComponent} from './view-inventory/view-inventory.component';
+import { FillOrderComponent } from './orders/fillorder/fillorder.component';
 
 
 export const AppRouting = RouterModule.forRoot([
@@ -23,6 +24,6 @@ export const AppRouting = RouterModule.forRoot([
   { path: 'landing', component: LandingComponent },
   { path: 'requestorder', component: RequestorderComponent },
   { path: 'updateinventory', component: UpdateInventoryComponent },
-  { path: 'viewinventory', component: ViewInventoryComponent }
-
+  { path: 'viewinventory', component: ViewInventoryComponent },
+  { path: 'fulfillorder', component: FillOrderComponent }
 ]);

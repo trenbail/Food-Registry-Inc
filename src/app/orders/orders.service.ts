@@ -10,6 +10,13 @@ export class OrdersService {
 
   constructor(private apiService: APIService) { }
 
+  fulfillOrder(orderNo: number, callback: (response) => void) {
+    this.apiService.post('/orders/fulfillOrder/' + orderNo, null, callback);
+  }
+
+  getOpenOrders(callback: (response) => void) {
+    this.apiService.get('/orders/getOpenOrders', callback);
+  }
 
   getSubscribedFood(callback): any {
     this.apiService.get('/inventory/getSubscribedFood', callback);
@@ -17,6 +24,10 @@ export class OrdersService {
 
   getSubscribedCarePackages(callback) {
     this.apiService.get('/inventory/getSubscribedCarePackages', callback);
+  }
+
+  requestOrder(object,callback){
+    this.apiService.post('/orders/requestOrder', object, callback);
   }
 
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {OrdersService} from '../orders.service';
+import {FormsModule , NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-requestorder',
@@ -8,9 +9,10 @@ import {OrdersService} from '../orders.service';
 })
 export class RequestorderComponent implements OnInit {
   foodSubscriptions: any[];
-  carePackageSubscriptions: any[] = [];
+  carePackageSubscriptions: any[];
 
-  constructor(private orderService: OrdersService) { }
+  constructor(private orderService: OrdersService) {
+  }
 
   ngOnInit() {
 
@@ -31,8 +33,35 @@ export class RequestorderComponent implements OnInit {
       }
       this.carePackageSubscriptions = temparr;
     });
-
   }
 
+  requestItems() {
+    let temparr = [];
 
+    for (let item of this.foodSubscriptions) {
+      let object = {};
+      if (item.value) {
+        object["itemName"] = item.name;
+        object["itemType"] = 'food';
+        object['itemQuantity'] = item.value;
+        temparr.push(object);
+      }
+    }
+
+    for (let item of this.carePackageSubscriptions) {
+      let object = {};
+      if (item.value) {
+        object["itemName"] = item.name;
+        object["itemType"] = 'food';
+        object['itemQuantity'] = item.value;
+        temparr.push(object);
+      }
+    }
+    this.orderService.requestOrder({items: temparr}, (res)=>{
+      console.log(res);
+    });
+
+  }
 }
+
+
