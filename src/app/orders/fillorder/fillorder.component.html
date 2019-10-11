@@ -22,7 +22,7 @@
                     <td>
                         <div *ngIf="order.newlyFulfilled then status else button"></div>
                         <ng-template #status>
-                            <div class="alert alert-success">Order Fulfilled!</div>
+                            <div class="alert alert-success">{{order.message}}</div>
                         </ng-template>
                         <ng-template #button>
                             <input type="button" value="Fulfill" (click)="fulfillOrder(order.orderno)">

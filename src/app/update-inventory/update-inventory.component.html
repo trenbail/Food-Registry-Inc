@@ -26,9 +26,7 @@
                         <input [(ngModel)]="carePackage.quantity" type="number" name="quantity">
                     </td>
                     <td>
-                        <form (ngSubmit)="updateCarePackage(carePackage)">
-                            <input type="submit" value="Update">
-                        </form>
+                        <input type="button" value="Update" (click)="updateCarePackage(carePackage)">
                     </td>
                 </tr>
             </table>

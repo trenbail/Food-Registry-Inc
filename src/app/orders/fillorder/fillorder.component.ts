@@ -14,8 +14,10 @@ export class FillOrderComponent implements OnInit {
       console.log(response);
       if (response.success) {
         for (let order of this.openOrders) {
-          if (order.orderno == orderNo)
+          if (order.orderno == orderNo){
+            order.message=response.success;
             order.newlyFulfilled = true;
+          }
         }
       }
     });
