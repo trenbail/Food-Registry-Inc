@@ -12,9 +12,10 @@ import { AddCarePackageComponent } from './add-carepackage/add-carepackage.compo
 import { HttpClientModule } from '@angular/common/http';
 import { APIService } from './shared/api.service';
 import { LoginService } from './login/login.service';
-import {OrdersModule} from './orders/orders.module';
-import { UpdatePackageComponent } from './update-package/update-package.component';
-import { UpdatePackageService } from './update-package/update-package.service';
+import { UpdateInventoryComponent } from './update-inventory/update-inventory.component';
+import { UpdateInventoryService } from './update-inventory/update-inventory.service';
+import { OrdersModule } from './orders/orders.module';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { UpdatePackageService } from './update-package/update-package.service';
     AddFoodComponent,
     AddCarePackageComponent,
     RegistrationComponent,
-    UpdatePackageComponent
+    UpdateInventoryComponent,
+    UpdateProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,7 @@ import { UpdatePackageService } from './update-package/update-package.service';
   providers: [
     APIService,
     LoginService,
-    UpdatePackageService
+    UpdateInventoryService
   ],
   bootstrap: [NavbarComponent]
 })

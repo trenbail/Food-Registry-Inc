@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Care Package Inventory</h1>
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Items</th>
+                    <th>Quantity</th>
+                    <th>Update</th>
+                </tr>
+                <tr *ngFor="let carePackage of carePackageInventory">
+                    <td>{{carePackage.name}}</td>
+                    <td>
+                        <input [(ngModel)]="carePackage.type" type="text" name="type">
+                    </td>
+                    <td>
+                        <input [(ngModel)]="carePackage.description" type="text" name="description">
+                    </td>
+                    <td>
+                        <input [(ngModel)]="carePackage.items" type="text" name="items">
+                    </td>
+                    <td>
+                        <input [(ngModel)]="carePackage.quantity" type="number" name="quantity">
+                    </td>
+                    <td>
+                        <form (ngSubmit)="updateCarePackage(carePackage)">
+                            <input type="submit" value="Update">
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Food Inventory</h1>
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Image URL</th>
+                    <th>Quantity</th>
+                    <th>Update</th>
+                </tr>
+                <tr *ngFor="let food of foodInventory">
+                    <td>{{food.name}}</td>
+                    <td>
+                        <input [(ngModel)]="food.type" type="text" name="type">
+                    </td>
+                    <td>
+                        <input [(ngModel)]="food.description" type="text" name="description">
+                    </td>
+                    <td>
+                        <input [(ngModel)]="food.imageurl" type="text" name="imageurl">
+                    </td>
+                    <td>
+                        <input [(ngModel)]="food.quantity" type="number" name="quantity">
+                    </td>
+                    <td>
+                        <form (ngSubmit)="updateFood(food)">
+                            <input type="submit" value="Update">
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div *ngIf="success" class="row">
+        <div class="col-lg-12">
+            <div class="alert" [class.alert-success]="success" [class.alert-danger]="!success">{{statusmessage}}</div>
+        </div>
+    </div>
+</div>
