@@ -34,6 +34,8 @@
           <input type="tel" formControlName="mobileno" class="form-control" pattern="^\d{10}$"> 
 		   <span class="text-danger" *ngIf="form.controls['mobileno'].touched && form.controls['mobileno'].hasError('required')">
                   Mobile No is required! </span>
+        <span class="text-danger" *ngIf="form.controls['mobileno'].touched && form.controls['mobileno'].hasError('pattern')">
+            Mobile No is invalid! </span>          
           <br>
       
           <label for="address">Address</label>
@@ -52,13 +54,14 @@
       
            <label for="familyinfo" >Do you wish to add family members?</label>
            <div class="custom-control custom-radio">  
-                <input type="radio" formControlName="familyinfo" value="Yes" class="form-check-input"> Yes 
+                <input type="radio" formControlName="familyinfo" name = "familyinfo" value="Yes" class="form-check-input"> Yes 
                 <br>
-                <input type="radio" formControlName="familyinfo" value="no" class="form-check-input"> No  
+                <input type="radio" formControlName="familyinfo" name = "familyinfo" value="No" class="form-check-input"> No  
           </div>  
          
-		 <div *ngIf="form.controls.radioBoutton.value == 'Yes'">
+		 
           <div formArrayName="contacts">
+              <div *ngIf="this.form.value.familyinfo == 'Yes'">
             <div *ngFor="let contact of contactFormGroup.controls; let i = index;">
               <div [formGroupName]="i">
                 <br>
@@ -82,7 +85,7 @@
         </div>  
 		</div>
         <br>   
-          <div *ngIf="form.controls.radioBoutton.value == 'No'">   
+          <div *ngIf="this.form.value.gender == 'No'">   
          </div>   
           <button class="btn btn-success" [disabled]="!form.valid" type="submit" >Submit</button>
           <br>
