@@ -1,6 +1,6 @@
   
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {NgForm} from '@angular/forms';
 
 @Component({
@@ -37,6 +37,7 @@ export class UpdateProfileComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
+      name: [null, Validators.compose([Validators.required])],
       contacts: this.fb.array([this.createContact()])
     });
 
@@ -47,9 +48,8 @@ export class UpdateProfileComponent implements OnInit {
   // contact formgroup
   createContact(): FormGroup {
     return this.fb.group({
-      type: [], // i.e Email, Phone
-      name: [], // i.e. Home, Office
-      value: []
+      name: [null, Validators.compose([Validators.required])],
+      value: [null, Validators.compose([Validators.required])]
     });
   }
 
@@ -62,6 +62,19 @@ export class UpdateProfileComponent implements OnInit {
   removeContact(index) {
     // this.dependenttList = this.form.get('contacts') as FormArray;
     this.dependenttList.removeAt(index);
+  }
+
+  changedFieldType(index) {
+    let validators = null;
+
+     validators = Validators.compose([
+     Validators.required // pattern for validating international phone number
+      ]);
+
+    this.getContactsFormGroup(index).controls['value'].setValidators(
+      validators
+    );
+    this.getContactsFormGroup(index).controls['value'].updateValueAndValidity();
   }
 
   // get the formgroup under contacts form array

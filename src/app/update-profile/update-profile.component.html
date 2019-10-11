@@ -52,6 +52,9 @@
                 <br>
                 <label for="dependentname">Dependent Name </label>
                 <input type="text" formControlName="name"  name="dependentname" required  class="form-control">
+                <span class="text-danger" *ngIf="getContactsFormGroup(i).controls['name'].touched && getContactsFormGroup(i).controls['name'].hasError('required')">
+                  Name is required! 
+                </span>
               <br> 
                 <label for="dependentage">Depenedent Age</label>
                 <input type="number" formControlName="value" name="dependentage" class="form-control">
@@ -71,7 +74,7 @@
         <br>   
           <div *ngIf="isSelected('No')">    
          </div>   
-          <button class="btn btn-success" type="submit" >Submit</button>
+          <button class="btn btn-success" [disabled]="!form.valid" type="submit" >Submit</button>
           <br>
         </div>
         </form>
