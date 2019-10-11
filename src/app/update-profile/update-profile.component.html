@@ -1,3 +1,11 @@
+
+<title>Update Profile</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 <form (ngSubmit)="updateprofile(f)" #f=ngForm class="form-inlin justify-content-center">
         <div class="col-sm-4 col-sm-offset-4">
         <h1 style="text-align:center">Update Profile</h1>
@@ -39,9 +47,9 @@
       
            <label for="familyinfo" >Do you wish to add family members?</label>
            <div class="custom-control custom-radio">  
-                <input type="radio" name="answer" value="Yes" (click)="setradio('Yes')" ngModel  class="custom-control-input"> Yes 
+                <input type="radio" name="answer" value="Yes" (click)="setradio('Yes')" ngModel class="form-check-input"> Yes 
                 <br>
-                <input type="radio" name="answer" value="no" (click)="setradio('No')" ngModel  class="custom-control-input"> No  
+                <input type="radio" name="answer" value="no" (click)="setradio('No')" ngModel class="form-check-input"> No  
           </div>  
          
           <div *ngIf="isSelected('Yes')"> 
