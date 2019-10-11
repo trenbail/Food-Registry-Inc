@@ -16,6 +16,8 @@ import { UpdateInventoryComponent } from './update-inventory/update-inventory.co
 import { UpdateInventoryService } from './update-inventory/update-inventory.service';
 import { OrdersModule } from './orders/orders.module';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { HomeComponent } from './home/home.component';
+import {LandingComponent} from './landing/landing.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     AddCarePackageComponent,
     RegistrationComponent,
     UpdateInventoryComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    HomeComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +46,6 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     LoginService,
     UpdateInventoryService
   ],
-  bootstrap: [NavbarComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
