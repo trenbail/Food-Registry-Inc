@@ -6,14 +6,16 @@ import { RegistrationComponent } from './registration/registration.component';
 import {OrdersComponent} from './orders/orders.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import {HomeComponent} from './home/home.component';
+import {LandingComponent} from './landing/landing.component';
 
 
  export const AppRouting = RouterModule.forRoot([
-     {path:'login', component:LoginComponent},
-     {path:'addfood', component:AddFoodComponent},
-     {path:'addcarepackage', component:AddCarePackageComponent},
-     {path:'registration', component:RegistrationComponent},
+     {path:'login', component: LoginComponent},
+     {path:'addfood', component: AddFoodComponent},
+     {path:'addcarepackage', component: AddCarePackageComponent},
+     {path:'registration', component: RegistrationComponent},
    {path: 'order', component: OrdersComponent},
-   {path:'updateprofile', component:UpdateProfileComponent},
-   {path: '', component: HomeComponent}
+   {path:'updateprofile', component: UpdateProfileComponent},
+   {path: '', component: HomeComponent},
+   {path: 'landing', component: LandingComponent }
      ]);

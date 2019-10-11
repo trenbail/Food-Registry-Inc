@@ -17,6 +17,7 @@ import { UpdateInventoryService } from './update-inventory/update-inventory.serv
 import { OrdersModule } from './orders/orders.module';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { HomeComponent } from './home/home.component';
+import {LandingComponent} from './landing/landing.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { HomeComponent } from './home/home.component';
     RegistrationComponent,
     UpdateInventoryComponent,
     UpdateProfileComponent,
-    HomeComponent
+    HomeComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
