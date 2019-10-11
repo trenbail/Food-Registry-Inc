@@ -1,69 +1,79 @@
 <form (ngSubmit)="updateprofile(f)" #f=ngForm class="form-inlin justify-content-center">
-    <div class="col-sm-4 col-sm-offset-4">
-    <h1 style="text-align:center">Update Profile</h1>
-  
-  
-      <label for="username">User Name</label>
-      <input type="text" #username=ngModel ngModel name="username" class="form-control" disabled>
-        <br>
-
-      <label for="name">Name</label>
-      <input type="text" #name=ngModel ngModel name="name" class="form-control">
-        <br>
-
-      <label for="password">Password</label>
-      <input type="password" #password=ngModel ngModel name="password" class="form-control">
-        <br>   
-        
-      <label for="mobileno">Mobile No</label>
-      <input type="tel" #mobileno=ngModel ngModel name="mobileno" class="form-control" pattern="^\d{10}$"> 
-      <div *ngIf="mobileno.errors?.pattern" style="color: red">
-        Mobile No is not valid.
-     </div> 
-      <br>   
-  
-      <label for="address">Address</label>
-      <input type="text" #address=ngModel ngModel name="address" class="form-control">
-       <br>
-  
-       <label for="emailid">Email Id</label>
-       <input type="email" #emailid=ngModel ngModel email name="emailid" class="form-control">
-       <div *ngIf=!emailid.valid style="color: red">
-        Email id is not valid
-      </div>
-      <br>
-       
-       <label for="subscriptions">Subscriptions</label>
-       <input type="text" #subscriptions=ngModel ngModel name="subscriptions" class="form-control">
-        <br>
-
-       <label for="familyinfo" >Do you wish to add family members??</label>
-       <div class="custom-control custom-radio">  
-            <input type="radio" name="answer" value="Yes" (click)="setradio('Yes')" ngModel unchecked class="custom-control-input"> Yes 
+        <div class="col-sm-4 col-sm-offset-4">
+        <h1 style="text-align:center">Update Profile</h1>
+      
+      
+          <label for="username">User Name</label>
+          <input type="text" #username=ngModel ngModel name="username" class="form-control" disabled>
             <br>
-            <input type="radio" name="answer" value="no" (click)="setradio('No')" ngModel unchecked class="custom-control-input"> No  
-      </div>  
-      <div id="textboxes">
-      <div *ngIf="isSelected('Yes')" >  
-        <br>
-        <label for="dependentname">Dependent Name
-        <input type="text" #dependentname=ngModel ngModel name="dependentname" class="form-control">
-      </label>
-        <br> 
-        <label for="dependentage">Depenedent Age</label>
-        <input type="number" #dependentage=ngModel ngModel name="dependentage" class="form-control">
-        <br>  
-        <button class="btn btn-primary" (click)="addfield()" >Add Dependent</button>
-      </div>  
-      <br>
-    </div>  
-    <br>   
-     
-      <div *ngIf="isSelected('No')">    
-     </div>   
-  
-      <button class="btn btn-success" type="submit" [disabled]="!f.valid">Submit</button>
-      <br>
-    </div>
-    </form>
-  
+      
+          <label for="name">Name</label>
+          <input type="text" #name=ngModel ngModel name="name" class="form-control">
+            <br>
+      
+          <label for="password">Password</label>
+          <input type="password" #password=ngModel ngModel name="password" class="form-control">
+            <br>   
+            
+          <label for="mobileno">Mobile No</label>
+          <input type="tel" #mobileno=ngModel ngModel name="mobileno" class="form-control" pattern="^\d{10}$"> 
+          <div *ngIf="mobileno.errors?.pattern" style="color: red">
+            Mobile No is not valid.
+         </div> 
+          <br>   
+      
+          <label for="address">Address</label>
+          <input type="text" #address=ngModel ngModel name="address" class="form-control">
+           <br>
+      
+           <label for="emailid">Email Id</label>
+           <input type="email" #emailid=ngModel ngModel email name="emailid" class="form-control">
+           <div *ngIf=!emailid.valid style="color: red">
+            Email id is not valid
+          </div>
+          <br>
+           
+           <label for="subscriptions">Subscriptions</label>
+           <input type="text" #subscriptions=ngModel ngModel name="subscriptions" class="form-control">
+            <br>
+      
+           <label for="familyinfo" >Do you wish to add family members?</label>
+           <div class="custom-control custom-radio">  
+                <input type="radio" name="answer" value="Yes" (click)="setradio('Yes')" ngModel  class="custom-control-input"> Yes 
+                <br>
+                <input type="radio" name="answer" value="no" (click)="setradio('No')" ngModel  class="custom-control-input"> No  
+          </div>  
+         
+          <div *ngIf="isSelected('Yes')"> 
+          <div [formGroup]="form">
+          <div formArrayName="contacts">
+            <div *ngFor="let contact of contactFormGroup.controls; let i = index;">
+              <div [formGroupName]="i">
+                <br>
+                <label for="dependentname">Dependent Name </label>
+                <input type="text" formControlName="name"  name="dependentname" required  class="form-control">
+              <br> 
+                <label for="dependentage">Depenedent Age</label>
+                <input type="number" formControlName="value" name="dependentage" class="form-control">
+                <br>  
+               <div class="form-group col-12 text-right">
+                    <button class="btn btn-danger" type="button" (click)="removeContact(i)"> Remove </button>
+               </div>
+          </div>
+          <div>
+              <button class="btn btn-primary m-1" type="button" (click)="addContact()">Add Dependent</button>
+          </div> 	
+        </div> 
+         <br>
+        </div>  
+        </div>
+        </div>
+        <br>   
+          <div *ngIf="isSelected('No')">    
+         </div>   
+          <button class="btn btn-success" type="submit" >Submit</button>
+          <br>
+        </div>
+        </form>
+      
+      

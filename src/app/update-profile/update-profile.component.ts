@@ -1,4 +1,6 @@
-import { Component, OnInit, Input, Renderer2 , ElementRef} from '@angular/core';
+  
+import { Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import {NgForm} from '@angular/forms';
 
 @Component({
@@ -7,48 +9,70 @@ import {NgForm} from '@angular/forms';
 })
 export class UpdateProfileComponent implements OnInit {
 
-  private selectedLink: string="";        
+  private selectedLink: string=""; 
+  public form: FormGroup;
+  public dependenttList: FormArray;       
   
   setradio(e: string): void   
+  {  this.selectedLink = e;  }  
+  
+  isSelected(name: string): boolean   
   {  
+    if (!this.selectedLink)  // if no radio button is selected, always return false so every nothing is shown  
+     { return false; }  
   
-    this.selectedLink = e;  
-          
-  }  
-  
-    isSelected(name: string): boolean   
-    {  
-    
-          if (!this.selectedLink) { // if no radio button is selected, always return false so every nothing is shown  
-              return false;  
-          }  
-  
-        return (this.selectedLink === name); // if current radio button is selected, return true, else return false  
+     return (this.selectedLink === name); // if current radio button is selected, return true, else return false  
    }  
   updateprofile(nf:NgForm)
   {
-    console.log("Profile Updated successfully !!", nf.value)
+      console.log("Profile Updated successfully !!", nf.value)
+  }
+  // returns all form groups under contacts
+  get contactFormGroup() 
+  {
+    return this.form.get('contacts') as FormArray;
   }
 
-  addfield()  {
-    console.log('function triggered');
-    const div = this.renderer.createElement('div');
-    const input = this.renderer.createElement('input');
-
-    this.renderer.appendChild(div, input);
-
-    console.log('cross passes the code');
-    this.renderer.addClass(input, 'form-control');
-
-    const textboxes = document.getElementById('textboxes');
-
-    this.renderer.appendChild(textboxes, div);
-  }
-
-  
-  constructor(private renderer:Renderer2, private el: ElementRef) { }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
+    this.form = this.fb.group({
+      contacts: this.fb.array([this.createContact()])
+    });
+
+    // set dependenttList to this field
+    this.dependenttList = this.form.get('contacts') as FormArray;
   }
- 
+
+  // contact formgroup
+  createContact(): FormGroup {
+    return this.fb.group({
+      type: [], // i.e Email, Phone
+      name: [], // i.e. Home, Office
+      value: []
+    });
+  }
+
+  // add a contact form group
+  addContact() {
+    this.dependenttList.push(this.createContact());
+  }
+
+  // remove contact from group
+  removeContact(index) {
+    // this.dependenttList = this.form.get('contacts') as FormArray;
+    this.dependenttList.removeAt(index);
+  }
+
+  // get the formgroup under contacts form array
+  getContactsFormGroup(index): FormGroup {
+    // this.dependenttList = this.form.get('contacts') as FormArray;
+    const formGroup = this.dependenttList.controls[index] as FormGroup;
+    return formGroup;
+  }
+
+  // method triggered when form is submitted
+  submit() {
+    console.log(this.form.value);
+  }
 }
