@@ -5,6 +5,7 @@ import { AddCarePackageComponent } from './add-carepackage/add-carepackage.compo
 import { RegistrationComponent } from './registration/registration.component';
 import {OrdersComponent} from './orders/orders.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import {HomeComponent} from './home/home.component';
 
 
  export const AppRouting = RouterModule.forRoot([
@@ -13,6 +14,6 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
      {path:'addcarepackage', component:AddCarePackageComponent},
      {path:'registration', component:RegistrationComponent},
    {path: 'order', component: OrdersComponent},
-   {path:'updateprofile', component:UpdateProfileComponent}
-
+   {path:'updateprofile', component:UpdateProfileComponent},
+   {path: '', component: HomeComponent}
      ]);
