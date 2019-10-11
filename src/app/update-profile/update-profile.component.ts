@@ -27,9 +27,10 @@ export class UpdateProfileComponent implements OnInit {
 	  username: [],
       firstname: [null, Validators.required],
 	  passwords : [null, Validators.required],
-      mobileno : [null, Validators.required],	
+      mobileno : [null, Validators.required, Validators.pattern(new RegExp('^[0-9]{10}$'))],	
 	  subscriptions : [],
-	  address : [],
+    address : [],
+    familyinfo : [],
 	  email : [null , Validators.required],
 	  value : [null, Validators.compose([Validators.required])],
       contacts: this.fb.array([this.createContact()])

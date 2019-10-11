@@ -7,6 +7,30 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
+           <br>
+		   
+      
+          <label for="password">Password</label>
+          <input type="password" formControlName="passwords" class="form-control">
+		  <span class="text-danger" *ngIf="form.controls['passwords'].touched && form.controls['passwords'].hasError('required')">
+                  Password is required! </span>
+          <br>   
+            
+          <label for="mobileno">Mobile No</label>
+          <input type="tel" formControlName="mobileno" class="form-control" pattern="^\d{10}$"> 
+		   <span class="text-danger" *ngIf="form.controls['mobileno'].touched && form.controls['mobileno'].hasError('required')">
+                  Mobile No is required! </span>
+        <span class="text-danger" *ngIf="form.controls['mobileno'].touched && form.controls['mobileno'].hasError('pattern')">
+            Mobile No is invalid! </span>          
+          <br>
+      
+          <label for="address">Address</label>
+          <input type="text" formControlName="address" class="form-control">
+           <br>
+      
+           <label for="emailid">Email Id</label>
+           <input type="email" formControlName="email" class="form-control">
+		    <span class="text-danger" *ngIf="form.controls['email'].touched && form.controls['email'].hasError('required')">
 
 <div class="container">
 	<div class="card bg-light">
@@ -78,13 +102,14 @@
 			<!-- form-group -->                                  
 			<label for="familyinfo" >Do you wish to add family members?</label>
            <div class="custom-control custom-radio">  
-                <input type="radio" formControlName="familyinfo" value="Yes" class="form-check-input"> Yes 
+                <input type="radio" formControlName="familyinfo" name = "familyinfo" value="Yes" class="form-check-input"> Yes 
                 <br>
-                <input type="radio" formControlName="familyinfo" value="no" class="form-check-input"> No  
+                <input type="radio" formControlName="familyinfo" name = "familyinfo" value="No" class="form-check-input"> No  
           </div>  
          
-		 <div *ngIf="form.controls.radioBoutton.value == 'Yes'">
+		 
           <div formArrayName="contacts">
+              <div *ngIf="this.form.value.familyinfo == 'Yes'">
             <div *ngFor="let contact of contactFormGroup.controls; let i = index;">
               <div [formGroupName]="i">
                 <br>
@@ -108,6 +133,8 @@
         </div>  
 		</div>
         <br>   
+          <div *ngIf="this.form.value.gender == 'No'">   
+         </div>   
           <div *ngIf="form.controls.radioBoutton.value == 'No'"></div>   
           <button class="btn btn-success" [disabled]="!form.valid" type="submit" >Submit</button>
           <br>                                                          
