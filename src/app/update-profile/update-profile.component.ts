@@ -1,7 +1,7 @@
   
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {NgForm} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-update-profile',
@@ -13,20 +13,7 @@ export class UpdateProfileComponent implements OnInit {
   public form: FormGroup;
   public dependenttList: FormArray;       
   
-  setradio(e: string): void   
-  {  this.selectedLink = e;  }  
   
-  isSelected(name: string): boolean   
-  {  
-    if (!this.selectedLink)  // if no radio button is selected, always return false so every nothing is shown  
-     { return false; }  
-  
-     return (this.selectedLink === name); // if current radio button is selected, return true, else return false  
-   }  
-  updateprofile(nf:NgForm)
-  {
-      console.log("Profile Updated successfully !!", nf.value)
-  }
   // returns all form groups under contacts
   get contactFormGroup() 
   {
@@ -37,7 +24,14 @@ export class UpdateProfileComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      name: [null, Validators.compose([Validators.required])],
+	  username: [],
+      firstname: [null, Validators.required],
+	  passwords : [null, Validators.required],
+      mobileno : [null, Validators.required],	
+	  subscriptions : [],
+	  address : [],
+	  email : [null , Validators.required],
+	  value : [null, Validators.compose([Validators.required])],
       contacts: this.fb.array([this.createContact()])
     });
 
@@ -48,8 +42,8 @@ export class UpdateProfileComponent implements OnInit {
   // contact formgroup
   createContact(): FormGroup {
     return this.fb.group({
-      name: [null, Validators.compose([Validators.required])],
-      value: [null, Validators.compose([Validators.required])]
+      name: [null, Validators.required], // i.e. Home, Office
+      value: [null, Validators.required]
     });
   }
 
@@ -60,26 +54,11 @@ export class UpdateProfileComponent implements OnInit {
 
   // remove contact from group
   removeContact(index) {
-    // this.dependenttList = this.form.get('contacts') as FormArray;
     this.dependenttList.removeAt(index);
   }
 
-  changedFieldType(index) {
-    let validators = null;
-
-     validators = Validators.compose([
-     Validators.required // pattern for validating international phone number
-      ]);
-
-    this.getContactsFormGroup(index).controls['value'].setValidators(
-      validators
-    );
-    this.getContactsFormGroup(index).controls['value'].updateValueAndValidity();
-  }
-
-  // get the formgroup under contacts form array
+   // get the formgroup under contacts form array
   getContactsFormGroup(index): FormGroup {
-    // this.dependenttList = this.form.get('contacts') as FormArray;
     const formGroup = this.dependenttList.controls[index] as FormGroup;
     return formGroup;
   }

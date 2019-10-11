@@ -18,6 +18,7 @@ import { OrdersModule } from './orders/orders.module';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { HomeComponent } from './home/home.component';
 import {LandingComponent} from './landing/landing.component';
+import { FillOrderComponent } from './orders/fillorder/fillorder.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {LandingComponent} from './landing/landing.component';
     UpdateInventoryComponent,
     UpdateProfileComponent,
     HomeComponent,
-    LandingComponent
+    LandingComponent,
+    FillOrderComponent
   ],
   imports: [
     BrowserModule,

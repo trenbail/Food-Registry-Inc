@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Open Orders</h1>
+            <table class="table">
+                <tr>
+                    <th>Order Number</th>
+                    <th>User</th>
+                    <th>Items</th>
+                    <th>Fulfill</th>
+                </tr>
+                <tr *ngFor="let order of openOrders">
+                    <td>{{order.orderno}}</td>
+                    <td>{{order.user}}</td>
+                    <td>
+                        <div *ngFor="let item of order.items">
+                            Name: {{item.itemName}}, 
+                            Quantity: {{item.itemQuantity}}, 
+                            Type: {{item.itemType}}
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="order.newlyFulfilled then status else button"></div>
+                        <ng-template #status>
+                            <div class="alert alert-success">Order Fulfilled!</div>
+                        </ng-template>
+                        <ng-template #button>
+                            <input type="button" value="Fulfill" (click)="fulfillOrder(order.orderno)">
+                        </ng-template>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
