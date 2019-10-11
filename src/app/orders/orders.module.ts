@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import {RequestorderComponent} from './requestorder/requestorder.component';
 import {OrdersComponent} from './orders.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import {OrdersComponent} from './orders.component';
     RequestorderComponent
   ],
   imports: [
-    CommonModule
+    CommonModule, FormsModule
   ]
 })
 export class OrdersModule { }

@@ -1,25 +1,11 @@
 
-<title>Update Profile</title>
+        <title>Update Profile</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-<form [formGroup]="form" (submit)="submit()" class="form-inlin justify-content-center">
-        <div class="col-sm-4 col-sm-offset-4">
-        <h1 style="text-align:center">Update Profile</h1>
-      
-      
-          <label for="username">User Name</label>
-          <input type="text" formControlName="username" class="form-control" disabled>
-		  
-            <br>
-      
-          <label for="name">Name</label>
-          <input type="text" formControlName="firstname" required class="form-control">
-		   <span class="text-danger" *ngIf="form.controls['firstname'].touched && form.controls['firstname'].hasError('required')">
-                  Name is required! </span>
 
            <br>
 		   
@@ -45,14 +31,76 @@
            <label for="emailid">Email Id</label>
            <input type="email" formControlName="email" class="form-control">
 		    <span class="text-danger" *ngIf="form.controls['email'].touched && form.controls['email'].hasError('required')">
+
+<div class="container">
+	<div class="card bg-light">
+		<article class="card-body mx-auto" style="max-width: 400px;">
+			<h4 class="card-title mt-3 text-center">Create Account</h4>
+			<p class="text-center">Get started with your free account</p>
+			<form [formGroup]="form" (submit)="submit()">
+			<!-- form-group -->
+			<br><div class="form-group input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text"> <i class="fa fa-user-circle"></i> </span>
+				 </div>
+				<input class="form-control" formControlName="username" type="text" disabled>
+			</div> 
+      <!-- form-group -->
+      <div class="form-group input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text"> <i class="fa fa-user"></i> </span>
+				 </div>
+				<input class="form-control"  formControlName="firstname" required required minlength="3" placeholder="Full name" type="text">
+			</div>
+			<span class="text-danger" *ngIf="form.controls['firstname'].touched && form.controls['firstname'].hasError('required')">
+        Name is required! </span>
+        <!-- form-group end -->
+			<br><div class="form-group input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+				</div>
+				<input class="form-control" formControlName="passwords" required placeholder="Password" type="password">
+			</div> 
+			<span class="text-danger" *ngIf="form.controls['passwords'].touched && form.controls['passwords'].hasError('required')">
+        Password is required! </span>
+      <!-- form-group -->
+			<br><div class="form-group input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+				 </div>
+				<input class="form-control" type="tel" formControlName="mobileno" pattern="^\d{10}$" required placeholder="Phone Number" type="number" pattern="^\d{10}$">
+			</div>  
+			<span class="text-danger" *ngIf="form.controls['mobileno'].touched && form.controls['mobileno'].hasError('required')">
+        Mobile No is required! </span>
+       <!-- form-group -->
+			<br><div class="form-group input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
+				 </div>
+				<input class="form-control" formControlName="address" required placeholder="Address" type="text">
+			</div>  
+			<div *ngIf='!address.valid && address.dirty' style="color:red">
+				Address Can Not be Blank!
+			</div>  
+			<!-- form-group -->
+			<br><div class="form-group input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+				 </div>
+				<input class="form-control" formControlName="email" required email placeholder="Email address" type="email">
+			</div>
+			<span *ngIf="form.controls['email'].touched && form.controls['email'].hasError('required')">
                   Email id is required! </span>
-          <br>
-           
-           <label for="subscriptions">Subscriptions</label>
-           <input type="text" formControlName="subscriptions" class="form-control">
-            <br>
-      
-           <label for="familyinfo" >Do you wish to add family members?</label>
+			<!-- form-group -->
+			<br><div class="form-group input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text"> <i class="fa fa-rss"></i> </span>
+				 </div>
+				<input class="form-control" formControlName="subscriptions" required placeholder="Subscriptions" type="text">
+			</div>  
+			
+			<!-- form-group -->                                  
+			<label for="familyinfo" >Do you wish to add family members?</label>
            <div class="custom-control custom-radio">  
                 <input type="radio" formControlName="familyinfo" name = "familyinfo" value="Yes" class="form-check-input"> Yes 
                 <br>
@@ -87,9 +135,13 @@
         <br>   
           <div *ngIf="this.form.value.gender == 'No'">   
          </div>   
+          <div *ngIf="form.controls.radioBoutton.value == 'No'"></div>   
           <button class="btn btn-success" [disabled]="!form.valid" type="submit" >Submit</button>
-          <br>
-        </div>
-        </form>
-      
+          <br>                                                          
+		</form>
+		</article>
+		</div> <!-- card. -->
+		
+	</div> 
+		<!--container end.-->
       
